@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			#table1{
+				width:100%;
+				text-align:left;
+			}
+			*{
+				padding：0；
+				margin:0;
+			}
+			#table2{
+				width:100%;
+				text-align:left;
+			}
+			 table tr:nth-child(odd){
+                                background: white;
+                        }
+                        table tr:nth-child(even){
+                                background: lightgrey;
+                        }
+		</style>
+		<script>
+	function showResult(str){
+    		if (str.length==0){	 
+       	 	document.getElementById("d1").innerHTML="";
+        	document.getElementById("d1").style.border="0px";
+        	return;
+    		}
+    		if (window.XMLHttpRequest){// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行
+        		xmlhttp=new XMLHttpRequest();
+    		}
+    		else{// IE6, IE5 浏览器执行
+        	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    		}
+   		 xmlhttp.onreadystatechange=function(){
+        		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+            			document.getElementById("d1").innerHTML=xmlhttp.responseText;
+            			document.getElementById("d1").style.border="1px solid #A5ACB2";
+        		}
+    		}
+    			xmlhttp.open("GET","gjzcz.php?q="+str,true);
+    			xmlhttp.send();
+	}
+	function showResult1(str){
+    		if (str.length==0){	 
+       	 	document.getElementById("d2").innerHTML="";
+        	document.getElementById("d2").style.border="0px";
+        	return;
+    		}
+    		if (window.XMLHttpRequest){// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行
+        		xmlhttp=new XMLHttpRequest();
+    		}
+    		else{// IE6, IE5 浏览器执行
+        	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    		}
+   		 xmlhttp.onreadystatechange=function(){
+        		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+            			document.getElementById("d2").innerHTML=xmlhttp.responseText;
+            			document.getElementById("d2").style.border="1px solid #A5ACB2";
+        		}
+    		}
+    			xmlhttp.open("GET","jqcz.php?q="+str,true);
+    			xmlhttp.send();
+	}
+		</script>
+	</head>
+	<div style="float:left;width:100%;background-color:darkblue;color:white;text-align:center;"><h1>图书查询界面</h1></div>
+	<div style="float:left;width:50%;margin-top:10px;">关键字查找<input type="text" onkeyup="showResult(this.value)"></div>
+	<div style="float:left;width:50%;margin-top:10px;">精确查找<input type="text" onkeyup="showResult1(this.value)"></div>
+	<div id="d1" style="float:left;width:45%;height:300px;">请输入信息</div>
+	<div id="d2" style="margin-left:5%;float:left;width:45%;height:400px;">请输入书号</div>
+	
+</html>
