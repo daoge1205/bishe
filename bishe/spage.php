@@ -1,6 +1,8 @@
+<?php
+header("Content-type: text/html; charset=utf-8");
+?>
 <html>
 	<head>
-		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
  		<link rel="stylesheet" href="bootstrap.min.css">
 		<title>学生页面</title>
@@ -58,13 +60,11 @@
 		</div>
 		<div id="d3">
 			<div class="tab" style="display:block;">
-  					<h2>条纹表格</h2>
-  					<p>通过添加 .table-striped 类，来设置条纹表格:</p>            
- 					<table class="table table-striped">
+  			<table class="table table-striped">
     					<thead>
       					<tr>
         				<th>书籍编号</th>
-        				<th>姓名</th>
+        				<th>学号</th>
         				<th>借书时间</th>
 					<th>还书时间</th>
       					</tr>
@@ -77,7 +77,19 @@
   					</table>
 			</div>
 			<div class="tab">
-					<?php echo $_COOKIE['username'];?>				
+					<table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                        <th>书籍编号</th>
+                                        <th>书籍名称</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                                include'bookHistory.php';
+                                        ?>
+                                        </tbody>
+                                        </table>			
 			</div>
 		</div>
 	</body>
